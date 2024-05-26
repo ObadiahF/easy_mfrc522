@@ -287,6 +287,26 @@ void RfidDictionaryView::remove(const String& key) {
 }
 
 /**
+ * In this function you call it and will clear everything from the dictionary.
+ * It will remove all user-created keys and values
+ */
+
+void RfidDictionaryView::clear() {
+  _ensure_loaded();
+  if (! this->loaded) {
+    return ;
+  }
+
+  for (int i = 0; i < this->size; i++) {
+    this->dictionary[i] = "";
+  }
+
+  this->size = 0;
+
+  _write_dictionary();
+}
+
+/**
  * In this function you give the key and it returns the value associated to that key.
  * If the key does not exist, it will return the empty string "".
  */

@@ -21,6 +21,7 @@
  *   .get(key)        - retrieves the value associated to the (unique) key.
  *   .remove(key)     - removes the key-value entry; the entry is immediatelly removed 
  *                      from the RFID tag
+ *   .clear()         - Removes all user-created data from dictionary, including keys and values. 
  * 
  * There's no intialization function (the MFRC522 is initialized automatically). 
  * Before using the operations above, you must stablish connection to a RFID tag in
@@ -60,6 +61,7 @@ public:
     String get(const String& keyString);
 
     void remove(const String& keyString);
+    void clear();
     bool hasKey(const String& keyString);
     
     String getKey(int entryIndex);
